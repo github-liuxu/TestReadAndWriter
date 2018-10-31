@@ -23,7 +23,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     NSFileManager *fm = [NSFileManager defaultManager];
-    NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"abcd.mp4"];
+    NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"abc.mp4"];
     NSLog(@"%@",path);
     [fm removeItemAtPath:path error:nil];
     NSString *videoPath = [[NSBundle mainBundle] pathForResource:@"abc" ofType:@"mp4"];
@@ -112,12 +112,13 @@
                                               AVVideoCodecKey                   : AVVideoCodecTypeH264,
                                               AVVideoWidthKey                   : @960,
                                               AVVideoHeightKey                  : @540,
-//                                              AVVideoCompressionPropertiesKey   : compressionProperties
+                                              AVVideoCompressionPropertiesKey   : compressionProperties
                                               };
 
     // Create the asset writer input and add it to the asset writer.
     AVAssetWriterInput *assetWriterVideoInput = [AVAssetWriterInput assetWriterInputWithMediaType:AVMediaTypeVideo outputSettings:compressionVideoSetting];
     [assetWriter addInput:assetWriterVideoInput];
+    assetWriterVideoInput.transform = CGAffineTransformRotate(CGAffineTransformIdentity, M_PI/2);
     
     AVAssetWriterInputPixelBufferAdaptor *adaptor = [[AVAssetWriterInputPixelBufferAdaptor alloc] initWithAssetWriterInput:assetWriterVideoInput sourcePixelBufferAttributes:nil];
     
