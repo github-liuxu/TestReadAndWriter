@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CD0E3B52189FAED008D992B /* SJReverseUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD0E3B42189FAEC008D992B /* SJReverseUtility.m */; };
+		0CD0E3B72189FCA8008D992B /* abc.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0CD0E3B62189FB1D008D992B /* abc.mp4 */; };
+		0CD0E3B9218A0154008D992B /* 123.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0CD0E3B8218A0154008D992B /* 123.mp4 */; };
 		B5903083215B487F006E911D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B5903082215B487F006E911D /* AppDelegate.m */; };
 		B5903086215B487F006E911D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5903085215B487F006E911D /* ViewController.m */; };
 		B5903089215B487F006E911D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5903087215B487F006E911D /* Main.storyboard */; };
@@ -17,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0CD0E3B32189FAEC008D992B /* SJReverseUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJReverseUtility.h; sourceTree = "<group>"; };
+		0CD0E3B42189FAEC008D992B /* SJReverseUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJReverseUtility.m; sourceTree = "<group>"; };
+		0CD0E3B62189FB1D008D992B /* abc.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = abc.mp4; sourceTree = "<group>"; };
+		0CD0E3B8218A0154008D992B /* 123.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 123.mp4; sourceTree = "<group>"; };
 		B590307E215B487F006E911D /* TestReadAndWriter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestReadAndWriter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5903081215B487F006E911D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B5903082215B487F006E911D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -61,6 +68,10 @@
 			isa = PBXGroup;
 			children = (
 				B5903097215B4A1A006E911D /* IMG_1770.MP4 */,
+				0CD0E3B8218A0154008D992B /* 123.mp4 */,
+				0CD0E3B62189FB1D008D992B /* abc.mp4 */,
+				0CD0E3B32189FAEC008D992B /* SJReverseUtility.h */,
+				0CD0E3B42189FAEC008D992B /* SJReverseUtility.m */,
 				B5903081215B487F006E911D /* AppDelegate.h */,
 				B5903082215B487F006E911D /* AppDelegate.m */,
 				B5903084215B487F006E911D /* ViewController.h */,
@@ -131,8 +142,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CD0E3B9218A0154008D992B /* 123.mp4 in Resources */,
 				B590308E215B4881006E911D /* LaunchScreen.storyboard in Resources */,
 				B590308B215B4881006E911D /* Assets.xcassets in Resources */,
+				0CD0E3B72189FCA8008D992B /* abc.mp4 in Resources */,
 				B5903098215B4A1B006E911D /* IMG_1770.MP4 in Resources */,
 				B5903089215B487F006E911D /* Main.storyboard in Resources */,
 			);
@@ -147,6 +160,7 @@
 			files = (
 				B5903086215B487F006E911D /* ViewController.m in Sources */,
 				B5903091215B4881006E911D /* main.m in Sources */,
+				0CD0E3B52189FAED008D992B /* SJReverseUtility.m in Sources */,
 				B5903083215B487F006E911D /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

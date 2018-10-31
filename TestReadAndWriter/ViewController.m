@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import "SJReverseUtility.h"
 
 @interface ViewController ()
 
@@ -25,7 +26,23 @@
     NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"abcd.mp4"];
     NSLog(@"%@",path);
     [fm removeItemAtPath:path error:nil];
-    NSString *videoPath = [[NSBundle mainBundle] pathForResource:@"IMG_1770" ofType:@"MP4"];
+    NSString *videoPath = [[NSBundle mainBundle] pathForResource:@"abc" ofType:@"mp4"];
+    
+    AVAsset *someAsset = [AVAsset assetWithURL:[NSURL fileURLWithPath:videoPath]];
+    dispatch_semaphore_t semg = dispatch_semaphore_create(0);
+    [someAsset loadValuesAsynchronouslyForKeys:@[@"duration"] completionHandler:^{
+        dispatch_semaphore_signal(semg);
+    }];
+    dispatch_semaphore_wait(semg, DISPATCH_TIME_FOREVER);
+    
+    SJReverseUtility *util = [[SJReverseUtility alloc] initWithAsset:someAsset outputPath:path];
+    [util setCallBack:^(AVAssetWriterStatus status, float progress, NSError *error) {
+        NSLog(@"%f",progress);
+    }];
+    [util startProcessing];
+    
+}
+    /*
     //初始化AVAssetReader
     NSError *outError;
     AVAsset *someAsset = [AVAsset assetWithURL:[NSURL fileURLWithPath:videoPath]];
@@ -119,13 +136,15 @@
             CMTime presentationTime = CMSampleBufferGetPresentationTimeStamp((__bridge CMSampleBufferRef)samples[i]);
             CVPixelBufferRef imageBufferRef = CMSampleBufferGetImageBuffer((__bridge CMSampleBufferRef)samples[samples.count - i - 1]);
             while (!assetWriterVideoInput.readyForMoreMediaData) {
-                [NSThread sleepForTimeInterval:0.1];
+//                [NSThread sleepForTimeInterval:0.1];
             }
 
             [adaptor appendPixelBuffer:imageBufferRef withPresentationTime:presentationTime];
             
         }
-    [assetWriter finishWriting];
+    [assetWriter finishWritingWithCompletionHandler:^{
+        NSLog(@"OK");
+    }];
 //    }];
     
 //    dispatch_group_notify(group, videoqueue, ^{
@@ -212,7 +231,7 @@
     
 
 }
-
+*/
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
